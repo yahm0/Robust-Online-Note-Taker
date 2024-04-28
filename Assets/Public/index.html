@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-
 <body>
   <header class="container-fluid bg-dark text-white p-3">
     <h1 class="text-center">Robust Online Note Taker</h1>
@@ -30,15 +29,26 @@
             <label for="note-text" class="form-label">Note Text</label>
             <textarea class="form-control" id="note-text" rows="3"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Save Note</button>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> Save Note
+          </button>
         </form>
       </div>
       <div class="col-md-6">
         <h2>View Notes</h2>
         <ul class="list-group">
-          <li class="list-group-item">Note 1</li>
-          <li class="list-group-item">Note 2</li>
-          <li class="list-group-item">Note 3</li>
+          <li class="list-group-item">
+            <span>Note 1</span>
+            <i class="fas fa-trash-alt float-right text-danger"></i>
+          </li>
+          <li class="list-group-item">
+            <span>Note 2</span>
+            <i class="fas fa-trash-alt float-right text-danger"></i>
+          </li>
+          <li class="list-group-item">
+            <span>Note 3</span>
+            <i class="fas fa-trash-alt float-right text-danger"></i>
+          </li>
         </ul>
       </div>
     </section>

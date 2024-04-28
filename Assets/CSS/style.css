@@ -35,6 +35,7 @@ main.container {
 
 .btn-primary:hover {
     background-color: #0069d9; /* Darker shade for hover state */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for hover effect */
 }
 
 /* List group customization */
@@ -42,10 +43,17 @@ main.container {
     border: 1px solid #dee2e6; /* Light gray border for list items */
     background-color: #f8f9fa; /* Slightly off-white background for list items */
     color: #495057; /* Dark gray text for readability */
+    cursor: pointer; /* Indicates that list items are interactive */
+    transition: background-color 0.2s; /* Smooth background color transition on hover */
 }
 
 .list-group-item:hover {
     background-color: #e2e6ea; /* Lighter shade on hover for interactivity */
+}
+
+/* Icons within list items */
+.list-group-item .fa-trash-alt {
+    cursor: pointer; /* Ensure that the trash icon indicates it is clickable */
 }
 
 /* Footer styles */
