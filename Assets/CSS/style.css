@@ -1,5 +1,66 @@
+/* General body styling */
 body {
-    background-color: white;
-    color: blue;
+    font-family: 'Arial', sans-serif; /* Ensures the entire app uses Arial, complementing Bootstrap's defaults */
+    background-color: #f8f9fa; /* Light, neutral background color */
 }
 
+/* Header styles */
+header {
+    background-color: #343a40; /* Consistent dark background for headers */
+    color: white;
+    padding: 16px 0;
+    border-bottom: 4px solid #007bff; /* Accent border using Bootstrap's primary color */
+}
+
+/* Main content styling */
+main.container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* Form styling enhancements */
+.form-control {
+    background-color: #e9ecef; /* Light gray background for form inputs and textareas */
+    border-radius: 0.25rem;
+}
+
+/* Custom button styles */
+.btn-primary {
+    background-color: #007bff; /* Bootstrap primary color */
+    border-color: #0069d9; /* Slightly darker border for a subtle depth effect */
+}
+
+.btn-primary:hover {
+    background-color: #0069d9; /* Darker shade for hover state */
+}
+
+/* List group customization */
+.list-group-item {
+    border: 1px solid #dee2e6; /* Light gray border for list items */
+    background-color: #f8f9fa; /* Slightly off-white background for list items */
+    color: #495057; /* Dark gray text for readability */
+}
+
+.list-group-item:hover {
+    background-color: #e2e6ea; /* Lighter shade on hover for interactivity */
+}
+
+/* Footer styles */
+footer {
+    background-color: #343a40; /* Consistent dark background for footers */
+    color: white;
+    padding: 12px 0;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    main.container, footer {
+        padding: 10px;
+        margin-top: 10px;
+    }
+}
