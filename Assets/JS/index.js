@@ -30,3 +30,31 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('notes', JSON.stringify(notes));
     }
 
+
+        // Render a new note
+        function renderNewNote() {
+            noteTitle.value = '';
+            noteText.value = '';
+    
+            show(saveNoteBtn);
+            hide(newNoteBtn);
+        }
+    
+        // Render active note
+        function renderActiveNote() {
+            hide(saveNoteBtn);
+    
+            if (activeNote.id) {
+                noteTitle.setAttribute('readonly', true);
+                noteText.setAttribute('readonly', true);
+                noteTitle.value = activeNote.title;
+                noteText.value = activeNote.text;
+            } else {
+                noteTitle.removeAttribute('readonly');
+                noteText.removeAttribute('readonly');
+                noteTitle.value = '';
+                noteText.value = '';
+            }
+        }
+    
+    
