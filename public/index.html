@@ -8,47 +8,22 @@
   <title>Robust Online Note Taker</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="./Assets/CSS/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-<body>
-  <header class="container-fluid bg-dark text-white p-3">
-    <h1 class="text-center">Robust Online Note Taker</h1>
-  </header>
+<body class="d-flex vh-100 justify-content-center align-items-center">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body text-center">
+      <h1 class="card-title">Robust Online Note Taker</h1>
+      <p class="card-text">Express Application</p>
+      <a href="/notes" class="btn btn-primary">Get Started</a>
+    </div>
+  </div>
 
-  <main class="container">
-    <section class="row">
-      <div class="col-md-6">
-        <h2>Take Notes</h2>
-        <form id="noteForm">
-          <div class="mb-3">
-            <label for="note-title" class="form-label">Note Title</label>
-            <input type="text" class="form-control" id="note-title">
-          </div>
-          <div class="mb-3">
-            <label for="note-text" class="form-label">Note Text</label>
-            <textarea class="form-control" id="note-text" rows="3"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">
-            <i class="fas fa-save"></i> Save Note
-          </button>
-        </form>
-      </div>
-      <div class="col-md-6">
-        <h2>View Notes</h2>
-        <ul class="list-group" id="noteList"> <!-- Ensure ID for JavaScript reference -->
-          <!-- Dynamic content will be loaded here -->
-        </ul>
-      </div>
-    </section>
-  </main>
-  <footer class="container-fluid bg-dark text-white p-3">
-    <p class="text-center">© 2022 Robust Online Note Taker</p>
+  <footer class="footer mt-auto py-3 bg-dark text-white fixed-bottom">
+    <div class="container text-center">
+      <span>© 2022 Robust Online Note Taker</span>
+    </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-5zv3J7ZjFVz8r1y2fzQJ2v8y4zg5z9Zz2" crossorigin="anonymous"
-    onerror="if (!window.bootstrap) document.write('<script src=\"/path/to/local/bootstrap.bundle.min.js\"><\/script>')"></script>
-  <script src="./Assets/JS/index.js"></script>
 </body>
 
 </html>
-

@@ -3,19 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const noteTitle = document.getElementById('note-title');
     const noteText = document.getElementById('note-text');
     const noteList = document.querySelector('.list-group');
+    const clearBtn = document.getElementById('clear-btn'); 
 
-    let activeNote = {}; // Initialize activeNote
+    let activeNote = {};
 
     noteForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
         handleNoteSave();
     });
+
+    clearBtn.addEventListener('click', clearForm);
 
     function handleNoteSave() {
         const noteToSave = {
             title: noteTitle.value.trim(),
             text: noteText.value.trim(),
-            id: activeNote.id || undefined // Use existing id if editing, undefined if new
+            id: activeNote.id || undefined
         };
 
         const method = noteToSave.id ? 'PUT' : 'POST';
@@ -29,29 +32,36 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(savedNote => {
             console.log('Note saved:', savedNote);
-            activeNote = {}; // Clear activeNote after saving
+            activeNote = {};
             loadAndRenderNotes();
         })
         .catch(err => console.error('Failed to save note:', err));
+    }
+
+    function clearForm() {
+        noteTitle.value = '';
+        noteText.value = '';
+        activeNote = {};
     }
 
     function loadAndRenderNotes() {
         fetch('/api/notes')
             .then(response => response.json())
             .then(notes => {
-                noteList.innerHTML = ''; // Clear the list first
+                noteList.innerHTML = '';
                 notes.forEach(note => {
                     const noteItem = document.createElement('li');
                     noteItem.classList.add('list-group-item');
                     noteItem.innerHTML = `${note.title} <i class="fas fa-trash-alt float-right text-danger" data-id="${note.id}"></i>`;
 
-                    // Add click event listener for editing and deleting
-                    noteItem.querySelector('.fa-trash-alt').addEventListener('click', function() {
+                    noteItem.querySelector('.fa-trash-alt').addEventListener('click', function(event) {
+                        event.stopPropagation(); // Prevent triggering the note edit when clicking the trash icon
                         deleteNote(note.id);
                     });
+
                     noteItem.addEventListener('click', function() {
                         editNote(note);
-                    }, true); // Use capture phase to avoid conflict with delete icon
+                    }, true); // Use capture to ensure the note is set before any bubbling deletions
 
                     noteList.appendChild(noteItem);
                 });
@@ -70,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function editNote(note) {
-        activeNote = note; // Set activeNote to the note to be edited
-        noteTitle.value = note.title; // Set input fields to note values
+        activeNote = note;
+        noteTitle.value = note.title;
         noteText.value = note.text;
     }
 

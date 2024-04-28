@@ -1,67 +1,40 @@
-/* General body styling */
-body {
-    font-family: 'Arial', sans-serif; /* Ensures the entire app uses Arial, complementing Bootstrap's defaults */
-    background-color: #f8f9fa; /* Light, neutral background color */
+/* Ensure the HTML and body take up at least full height of the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
 }
 
-/* Header styles */
+/* Use flexbox to organize content and footer */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 header {
-    background-color: #343a40; /* Consistent dark background for headers */
+    background-color: #343a40;
     color: white;
     padding: 16px 0;
-    border-bottom: 4px solid #007bff; /* Accent border using Bootstrap's primary color */
+    border-bottom: 4px solid #007bff;
 }
 
-/* Main content styling */
+/* Ensure main content expands to fill available space */
 main.container {
-    margin-top: 20px;
+    flex: 1;
     padding: 20px;
+    margin-top: 20px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Form styling enhancements */
-.form-control {
-    background-color: #e9ecef; /* Light gray background for form inputs and textareas */
-    border-radius: 0.25rem;
-}
-
-/* Custom button styles */
-.btn-primary {
-    background-color: #007bff; /* Bootstrap primary color */
-    border-color: #0069d9; /* Slightly darker border for a subtle depth effect */
-}
-
-.btn-primary:hover {
-    background-color: #0069d9; /* Darker shade for hover state */
-    transition: background-color 0.3s ease-in-out; /* Smooth transition for hover effect */
-}
-
-/* List group customization */
-.list-group-item {
-    border: 1px solid #dee2e6; /* Light gray border for list items */
-    background-color: #f8f9fa; /* Slightly off-white background for list items */
-    color: #495057; /* Dark gray text for readability */
-    cursor: pointer; /* Indicates that list items are interactive */
-    transition: background-color 0.2s; /* Smooth background color transition on hover */
-}
-
-.list-group-item:hover {
-    background-color: #e2e6ea; /* Lighter shade on hover for interactivity */
-}
-
-/* Icons within list items */
-.list-group-item .fa-trash-alt {
-    cursor: pointer; /* Ensure that the trash icon indicates it is clickable */
-}
-
-/* Footer styles */
 footer {
-    background-color: #343a40; /* Consistent dark background for footers */
+    background-color: #343a40;
     color: white;
     padding: 12px 0;
-    margin-top: 30px;
     text-align: center;
 }
 
