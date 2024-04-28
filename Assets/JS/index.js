@@ -56,7 +56,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Additional functions remain unchanged...
+    function handleNoteDelete(event) {
+        const noteId = event.target.getAttribute('data-id');
+        const notes = getNotes();
+        const filteredNotes = notes.filter(note => note.id !== noteId);
+        saveNotes(filteredNotes);
+        renderNoteList();
+    }
+
+    function renderNoteList() {
+        noteList.innerHTML = '';
+        const notes = getNotes();
+
+        notes.forEach(note => {
+            const noteItem = document.createElement('li');
+            noteItem.classList.add('list-group-item');
+            noteItem.innerHTML = `${note.title} <i class="fas fa-trash-alt float-right text-danger" data-id="${note.id}"></i>`;
+
+            noteItem.querySelector('.fa-trash-alt').addEventListener('click', handleNoteDelete);
+            noteList.appendChild(noteItem);
+        });
+    }
 
     saveNoteBtn.addEventListener('click', handleNoteSave);
     newNoteBtn.addEventListener('click', renderNewNote);
