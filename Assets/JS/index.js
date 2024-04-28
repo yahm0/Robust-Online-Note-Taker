@@ -6,3 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let newNoteBtn = document.querySelector('.new-note');
     let clearBtn = document.querySelector('.clear-btn');
     let noteList = document.querySelector('.list-group'); // Ensure this selector matches your HTML
+
+    // Show an element
+    function show(element) {
+        element.style.display = 'inline';
+    }
