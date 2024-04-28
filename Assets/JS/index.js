@@ -163,6 +163,5 @@ document.addEventListener('DOMContentLoaded', function() {
         renderActiveNote();
     }
 );
-```
 
 

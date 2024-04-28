@@ -33,3 +33,17 @@ app.post('/api/notes', (req, res) => {
         });
     });
 }
+
+app.delete('/api/notes/:id', (req, res) => {
+    fs.readFile(path.join(__dirname, '/DB/database.json'), (err, data) => {
+        if (err) throw err;
+        const notes = JSON.parse(data);
+        const updatedNotes = notes.filter(note => note.id !== req.params.id);
+        fs.writeFile(path.join(__dirname, '/DB/database.json'), JSON.stringify(updatedNotes), (err) => {
+            if (err) throw err;
+            res.json({ ok: true });
+        });
+    });
+});
+
+app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
