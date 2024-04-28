@@ -8,3 +8,38 @@
   <title>Robust Online Note Taker</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
+
+<body>
+  <header class="container-fluid bg-dark text-white p-3">
+    <h1 class="text-center">Robust Online Note Taker</h1>
+  </header>
+  <main class="container">
+    <section class="row">
+      <div class="col-md-6">
+        <h2>Take Notes</h2>
+        <form>
+          <div class="mb-3">
+            <label for="note-title" class="form-label">Note Title</label>
+            <input type="text" class="form-control" id="note-title">
+          </div>
+          <div class="mb-3">
+            <label for="note-text" class="form-label">Note Text</label>
+            <textarea class="form-control" id="note-text" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Save Note</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h2>View Notes</h2>
+        <ul class="list-group">
+          <li class="list-group-item">Note 1</li>
+          <li class="list-group-item">Note 2</li>
+          <li class="list-group-item">Note 3</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer class="container-fluid bg-dark text-white p-3">
+    <p class="text-center">© 2022 Robust Online Note Taker</p>
+  </footer>
+</body>
