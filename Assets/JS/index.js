@@ -17,3 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
         element.style.display = 'none';
     }
 
+    // Active Note
+    let activeNote = {};
+
+    // Get notes from localStorage
+    function getNotes() {
+        return JSON.parse(localStorage.getItem('notes'));
+    }
+
+    // Save notes to localStorage
+    function saveNotes(notes) {
+        localStorage.setItem('notes', JSON.stringify(notes));
+    }
+
