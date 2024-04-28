@@ -57,4 +57,40 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     
+        // Get note data
+        function getNoteData(event) {
+            let title = noteTitle.value.trim();
+            let text = noteText.value.trim();
     
+            if (title && text) {
+                activeNote = {
+                    title,
+                    text
+                };
+    
+                return activeNote;
+            }
+        }
+    
+        // Save note
+        function handleNoteSave() {
+            let newNote = getNoteData();
+    
+            if (newNote) {
+                if (activeNote.id) {
+                    newNote.id = activeNote.id;
+                    activeNote.id = null;
+                } else {
+                    newNote.id = Math.floor(Math.random() * 1000);
+                }
+    
+                let savedNotes = getNotes() || [];
+                let newNotesArr = [...savedNotes, newNote];
+    
+                saveNotes(newNotesArr);
+                renderNewNote();
+                renderNoteList();
+            }
+        }
+    
+        
