@@ -124,4 +124,45 @@ document.addEventListener('DOMContentLoaded', function() {
             renderNoteList();
         }
 
-      
+        // Render note list
+        function renderNoteList() {
+            noteList.innerHTML = '';
+    
+            let notes = getNotes();
+    
+            if (notes) {
+                notes.forEach((note) => {
+                    let li = document.createElement('li');
+                    li.classList.add('list-group-item');
+                    li.setAttribute('data-note', JSON.stringify(note));
+                    li.setAttribute('data-id', note.id);
+    
+                    let span = document.createElement('span');
+                    span.innerText = note.title;
+                    span.addEventListener('click', handleNoteView);
+    
+                    let delBtn = document.createElement('i');
+                    delBtn.classList.add('fas', 'fa-trash-alt', 'float-right', 'text-danger');
+                    delBtn.addEventListener('click', handleNoteDelete);
+    
+                    li.appendChild(span);
+                    li.appendChild(delBtn);
+                    noteList.appendChild(li);
+                });
+            }
+        }
+
+        // Event listeners
+        saveNoteBtn.addEventListener('click', handleNoteSave);
+        newNoteBtn.addEventListener('click', renderNewNote);
+        clearBtn.addEventListener('click', handleClearNotes);
+
+        // Render initial note list
+        renderNoteList();
+        renderNewNote();
+        renderActiveNote();
+    }
+);
+```
+
+
