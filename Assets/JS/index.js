@@ -93,4 +93,35 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     
-        
+        // Delete note
+        function handleNoteDelete(event) {
+            event.stopPropagation();
+    
+            let note = event.target;
+            let noteId = parseInt(note.parentElement.getAttribute('data-id'));
+    
+            if (activeNote.id === noteId) {
+                activeNote = {};
+            }
+    
+            let savedNotes = getNotes();
+            let newNotesArr = savedNotes.filter((note) => note.id !== noteId);
+    
+            saveNotes(newNotesArr);
+            renderActiveNote();
+            renderNoteList();
+        }
+    
+        // Set active note
+        function handleNoteView(event) {
+            activeNote = JSON.parse(event.target.parentElement.getAttribute('data-note'));
+            renderActiveNote();
+        }
+
+        // Clear notes
+        function handleClearNotes() {
+            localStorage.removeItem('notes');
+            renderNoteList();
+        }
+
+      
