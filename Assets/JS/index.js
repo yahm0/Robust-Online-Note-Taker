@@ -11,3 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function show(element) {
         element.style.display = 'inline';
     }
+
+    // Hide an element
+    function hide(element) {
+        element.style.display = 'none';
+    }
+
